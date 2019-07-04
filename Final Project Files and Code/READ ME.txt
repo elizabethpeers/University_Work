@@ -1,0 +1,44 @@
+Welcome to Robob the colour sorting robot
+
+Programs needed:
+-PuTTY or a termial program
+-Xming
+
+
+To get started plug in your raspberry pi to the computer.
+
+In PuTTY connect to SSH with:
+Host Name: 192.168.0.10 
+Port: 22
+
+PuTTY will open and ask for a login. use:
+Username: pi
+Password: cc3501
+
+Plug in the FRDM board to a usb port on the computer and the plug in the power supply to the PCB FRDM attachment.
+
+To get your pi ready to run Robob, type: cd Documents/scripts
+then: ./autopair
+
+This will pair the two bluetooth devices. 
+Once this is done type: cd 
+then: cd Documents/Callibration
+then: export DISPLAY=192.168.0.1:0
+
+This will allow for the pi to send video and image feeds to the computer for you to view. Start up Xming so it can run in the background.
+
+Then type: ./Callibration
+
+This will run the calibration file to match up the line on the mat with the line on the screen. Make sure Robob cannot be seen on the the video. When you have finished calibrating press Ctrl + C to exit.
+
+Next is to run the code. Type:cd
+Then: cd\Documents\Assignment\build
+Then: make
+Then: ./Assignment
+
+Once the window has opened displaying the track bars to select colour. Open another PuTTY terminal and connect it to your FRDM boards COM channel and a baud rate of 115200.
+Once it starts up hit the reset button on the FRDM board to restart the code upload to it. Then select how you would like to operate the robot.
+
+PLEASE NOTE: The image processing is only required to run when you wish to operate the robot in autonomous mode.
+
+
